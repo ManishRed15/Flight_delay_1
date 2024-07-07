@@ -1,0 +1,255 @@
+Microsoft Windows [Version 10.0.19043.1237]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\manis\Documents\Mini Projects\5 Predicting Flight Delays with Error Calculation\FlightDelays>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified some issues:
+
+WARNINGS:
+users.FlightDataModel: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+        HINT: Configure the DEFAULT_AUTO_FIELD setting or the UsersConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+users.UserRegistrationModel: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+        HINT: Configure the DEFAULT_AUTO_FIELD setting or the UsersConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 2 issues (0 silenced).
+
+You have 4 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth.
+Run 'python manage.py migrate' to apply them.
+October 03, 2021 - 11:59:35
+Django version 3.2.7, using settings 'FlightDelays.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[03/Oct/2021 12:00:55] "GET / HTTP/1.1" 200 7420
+[03/Oct/2021 12:01:00] "GET /UserLogin/ HTTP/1.1" 200 7523
+Login ID =  manish  Password =  Manish@123
+Status is =  activated
+User id At 5 activated
+[03/Oct/2021 12:01:13] "POST /UserLoginCheck/ HTTP/1.1" 200 7704
+Dataset            id  DAY  DEPARTURE_TIME  FLIGHT_NUMBER DESTINATION_AIRPORT ORIGIN_AIRPORT  DAY_OF_WEEK  TAXI_OUT
+0          1    1          2354.0             98                 SEA            ANC            4      21.0
+1          2    1             2.0           2336                 PBI            LAX            4      12.0
+2          3    1            18.0            840                 CLT            SFO            4      16.0
+3          4    1            15.0            258                 MIA            LAX            4      15.0
+4          5    1            24.0            135                 ANC            SEA            4      11.0
+...      ...  ...             ...            ...                 ...            ...          ...       ...
+20272  20273    2          1123.0           5352                 ATL            OAJ            5       9.0
+20273  20274    2          1146.0           1621                 EWR            IAH            5      13.0
+20274  20275    2          1237.0           1642                 IAH            DEN            5      11.0
+20275  20276    2          1253.0           1247                 SFO            DEN            5      14.0
+20276  20277    2            25.0            225                 HYD            MUB            5      14.0
+
+[20277 rows x 8 columns]
+False
+DAY                      int64
+DEPARTURE_TIME         float64
+FLIGHT_NUMBER            int64
+DESTINATION_AIRPORT     object
+ORIGIN_AIRPORT          object
+DAY_OF_WEEK              int64
+TAXI_OUT               float64
+dtype: object
+[03/Oct/2021 12:01:22] "GET /DataPreProcessing/ HTTP/1.1" 200 12102181
+###Logistic Regression####
+MAE= 1718.2941263500518
+MSE= 5958923.925432757
+RMSE= 2441.090724539495
+Variance Score  -0.013494713499543787
+Median Absalute Error= 1006.0
+R2_Score -0.7670160738604366
+###Decesion Treee####
+MAE= 1504.8561917443408
+MSE= 1504.8561917443408
+RMSE= 1835.4608825653916
+Variance Score  0.001007905866440173
+Median Absalute Error= 1361.8174099946264
+R2_Score 0.0010054512506673108
+###RadomForest####
+MAE= 1504.486018641811
+MSE= 3368919.0263352566
+RMSE= 1835.4615295165563
+Variance Score  0.001006125760205867
+Median Absalute Error= 1361.0706090757703
+R2_Score 0.0010055244766348226
+###RadomForest####
+MAE= 1504.7792572865808
+MSE= 3368897.111259062
+RMSE= 1835.4555595979605
+Variance Score  0.001013418387548537
+Median Absalute Error= 1362.4365689192964
+R2_Score 0.0010109796578046115
+###GradientBoostingRegressor####
+MAE= 1504.8561917443408
+MSE= 3368916.651427726
+RMSE= 1835.4608825653916
+Variance Score  0.0010079101525193312
+Median Absalute Error= 1361.818531222937
+R2_Score 0.0010054555435584644
+[03/Oct/2021 12:09:13] "GET /UsermachineLearning/ HTTP/1.1" 200 8318
+###Decesion Treee####
+MAE= 1504.8561917443408
+MSE= 1504.8561917443408
+RMSE= 1835.4608825653916
+Variance Score  0.001007905866440173
+Median Absalute Error= 1361.8174099946264
+R2_Score 0.0010054512506673108
+###RadomForest####
+MAE= 1504.7424175173842
+MSE= 3368899.914780293
+RMSE= 1835.456323310444
+Variance Score  0.0010125515238130767
+Median Absalute Error= 1361.7558964269278
+R2_Score 0.001011265432656283
+###RadomForest####
+MAE= 1504.7792572865808
+MSE= 3368897.111259062
+RMSE= 1835.4555595979605
+Variance Score  0.001013418387548537
+Median Absalute Error= 1362.4365689192964
+R2_Score 0.0010109796578046115
+###GradientBoostingRegressor####
+MAE= 1504.8561917443408
+MSE= 3368916.651427726
+RMSE= 1835.4608825653916
+Variance Score  0.0010079101525193312
+Median Absalute Error= 1361.818531222937
+R2_Score 0.0010054555435584644
+[03/Oct/2021 12:14:24] "GET /UserGraphs/ HTTP/1.1" 200 10092
+[03/Oct/2021 12:15:12] "GET /Logout/ HTTP/1.1" 200 7420
+[03/Oct/2021 12:15:25] "GET /UserRegister/ HTTP/1.1" 200 8822
+[03/Oct/2021 12:15:29] "GET /AdminLogin/ HTTP/1.1" 200 7640
+User ID is =  admin
+[03/Oct/2021 12:15:36] "POST /AdminLoginCheck/ HTTP/1.1" 200 7769
+[03/Oct/2021 12:15:40] "GET /ViewUsers/ HTTP/1.1" 200 12325
+PID =  4 activated
+[03/Oct/2021 12:15:42] "GET /AdminActivaUsers/?uid=4 HTTP/1.1" 200 12195
+[03/Oct/2021 12:15:45] "GET /AdmimnAddData/ HTTP/1.1" 200 8551
+C:\Users\manis\Documents\Mini Projects\5 Predicting Flight Delays with Error Calculation\FlightDelays\admins\views.py:59: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'users.models.FlightDataModel'> QuerySet.
+  paginator = Paginator(data_list, 60)
+[03/Oct/2021 12:16:14] "GET /AdminViewData/ HTTP/1.1" 200 69797
+###Logistic Regression####
+C:\Users\manis\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\linear_model\_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+MAE= 724.0171623021157
+MSE= 1298512.8433200177
+RMSE= 1139.5230771335953
+Variance Score  0.6489377889280147
+Median Absalute Error= 412.0
+R2_Score 0.6161787172744064
+###Decesion Treee####
+MAE= 0.25048084036100016
+MSE= 0.25048084036100016
+RMSE= 0.833444289106854
+Variance Score  0.9999997959938249
+Median Absalute Error= 0.0
+R2_Score 0.9999997946777791
+###RadomForest####
+MAE= 0.16955170883266754
+MSE= 0.2808107708240864
+RMSE= 0.5299158148461758
+Variance Score  0.9999999243962207
+Median Absalute Error= 0.08000000000004093
+R2_Score 0.9999999191026995
+###RadomForest####
+MAE= 0.0
+MSE= 0.0
+RMSE= 0.0
+Variance Score  1.0
+Median Absalute Error= 1.1368683772161603e-12
+R2_Score 1.0
+###GradientBoostingRegressor####
+MAE= 8.532031365586626
+MSE= 134.4107116437343
+RMSE= 11.593563371273488
+Variance Score  0.9999601727121398
+Median Absalute Error= 6.249706571084687
+R2_Score 0.99996016325726
+[03/Oct/2021 12:29:30,159] - Broken pipe from ('127.0.0.1', 57543)
+
+###Logistic Regression####
+C:\Users\manis\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\linear_model\_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+MAE= 724.0171623021157
+MSE= 1298512.8433200177
+RMSE= 1139.5230771335953
+Variance Score  0.6489377889280147
+Median Absalute Error= 412.0
+R2_Score 0.6161787172744064
+###Decesion Treee####
+MAE= 0.25003698772007693
+MSE= 0.25003698772007693
+RMSE= 0.7109150491663772
+Variance Score  0.9999998519097337
+Median Absalute Error= 0.0
+R2_Score 0.9999998506111382
+###RadomForest####
+MAE= 0.16984761059328304
+MSE= 0.2858411007545495
+RMSE= 0.534641095272847
+Variance Score  0.9999999239121793
+Median Absalute Error= 0.08999999999991815
+R2_Score 0.9999999187063117
+###RadomForest####
+MAE= 0.0
+MSE= 0.0
+RMSE= 0.0
+Variance Score  1.0
+Median Absalute Error= 1.1368683772161603e-12
+R2_Score 1.0
+###GradientBoostingRegressor####
+MAE= 8.532031365586626
+MSE= 134.4107116437343
+RMSE= 11.593563371273488
+Variance Score  0.9999601727121398
+Median Absalute Error= 6.249706571084118
+R2_Score 0.99996016325726
+[03/Oct/2021 12:43:20] "GET /AdminFindArrivalDelay/ HTTP/1.1" 200 8309
+###Decesion Treee####
+MAE= 0.2546234650096168
+MSE= 0.2546234650096168
+RMSE= 0.8721327167708366
+Variance Score  0.999999776758623
+Median Absalute Error= 0.0
+R2_Score 0.9999997751732614
+###RadomForest####
+MAE= 0.16866400355082112
+MSE= 0.2882083148394733
+RMSE= 0.5368503654087173
+Variance Score  0.999999923693188
+Median Absalute Error= 0.07999999999992724
+R2_Score 0.9999999185766592
+###RadomForest####
+MAE= 0.0
+MSE= 0.0
+RMSE= 0.0
+Variance Score  1.0
+Median Absalute Error= 1.1368683772161603e-12
+R2_Score 1.0
+###GradientBoostingRegressor####
+MAE= 8.532031365586626
+MSE= 134.4107116437343
+RMSE= 11.593563371273488
+Variance Score  0.9999601727121398
+Median Absalute Error= 6.249706571084772
+R2_Score 0.99996016325726
+[03/Oct/2021 12:45:30] "GET /AdminGraphs/ HTTP/1.1" 200 9923
+[03/Oct/2021 12:46:53] "GET /AdmimnAddData/ HTTP/1.1" 200 8551
+Data is Valid
+[03/Oct/2021 12:47:31] "POST /AdminAddingFlightData/ HTTP/1.1" 200 8726
+C:\Users\manis\Documents\Mini Projects\5 Predicting Flight Delays with Error Calculation\FlightDelays\admins\views.py:59: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'users.models.FlightDataModel'> QuerySet.
+  paginator = Paginator(data_list, 60)
+[03/Oct/2021 12:47:35] "GET /AdminViewData/ HTTP/1.1" 200 69797
+[03/Oct/2021 12:47:49] "GET /AdminViewData/?page=338 HTTP/1.1" 200 68772
